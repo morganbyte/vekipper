@@ -25,6 +25,7 @@ La sincronización funciona **en ambos sentidos**: lo que cambias en Vekipper ap
 - **Backend:** Python + [FastAPI](https://fastapi.tiangolo.com)
 - **Base de datos y autenticación:** [Supabase](https://supabase.com)
 - **Monorepo** con pnpm (JavaScript) y [uv](https://docs.astral.sh/uv/) (Python)
+- **Tipografía:** [Geist Mono](https://vercel.com/font) en toda la interfaz
 
 ## Estructura
 
@@ -47,6 +48,7 @@ Ver [docs/getting-started.md](docs/getting-started.md).
 - [Visión](docs/vision.md): qué es Vekipper, para quién es y qué *no* es
 - [Arquitectura](docs/architecture.md): cómo encajan las piezas
 - [Roadmap](docs/roadmap.md): qué viene y en qué orden
+- [Entornos y ramas](docs/environments.md): development, staging, production y cómo se publica una versión
 - [Decisiones de arquitectura](docs/decisions/): el porqué de cada decisión importante
 - [Cómo contribuir](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)

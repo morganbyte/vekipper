@@ -1,5 +1,7 @@
 # Empezar a desarrollar
 
+> Antes de programar, lee [Entornos y ramas](environments.md): todo cambio parte de `develop` en una rama propia.
+
 ## Requisitos
 
 | Herramienta | Para qué | Instalación |
@@ -15,6 +17,7 @@
 
 ```bash
 pnpm install          # desde la raíz del repo
+cp apps/web/.env.example apps/web/.env.local
 pnpm dev:web          # http://localhost:3000
 ```
 

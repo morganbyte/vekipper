@@ -7,7 +7,9 @@ Orientativo: el orden puede cambiar según el feedback de usuarios reales.
 - [x] Documentación base: visión, arquitectura y decisiones
 - [x] Migración de la tabla `feedback` en Supabase
 - [x] CI: lint y tests de web y API
-- [ ] Proyecto de Supabase creado y conectado
+- [x] Entornos y flujo de ramas: `develop` → staging, `main` → producción ([ADR 0006](decisions/0006-entornos-y-ramas.md))
+- [ ] Elegir hosting (web y API) y configurar el despliegue automático a staging y producción
+- [ ] Proyectos Supabase de staging y producción
 - [ ] Inicio de sesión con Google (Supabase Auth)
 - [ ] Layout base de la app (navegación, tema claro/oscuro)
 - [ ] Sección de feedback funcional en la interfaz
