@@ -15,6 +15,10 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - Plantillas de issues y pull requests, y CI para web y API.
 - Entornos development/staging/production con flujo de ramas `develop`/`main` (ADR 0006).
 - Etiqueta de entorno en la web fuera de producción.
+- Layout base: cabecera con navegación animada, tema claro/oscuro y menú de usuario.
+- Inicio de sesión con Google mediante Supabase Auth (`/login` y `/auth/callback`).
+- Sección de feedback (`/feedback`): enviar un problema, una funcionalidad u otro, y ver el estado de lo enviado.
+- Guía de Google Cloud (`docs/google-cloud.md`) y ADR 0007 (Vercel para la web).
 - Guía de configuración de Supabase (`docs/supabase.md`) y CLI de Supabase incluida en el repo, con los atajos `pnpm db:*`.
 
 ### Cambiado
