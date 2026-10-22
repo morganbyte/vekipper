@@ -1,0 +1,23 @@
+name: ✨ Pedir una funcionalidad
+description: Propón algo que te gustaría que Vekipper hiciera.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Vekipper intenta tener **solo lo esencial**. Cuéntanos el problema real que quieres resolver, no solo la solución.
+  - type: textarea
+    id: problem
+    attributes:
+      label: ¿Qué problema quieres resolver?
+      placeholder: Cada mañana tengo que...
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: ¿Cómo te imaginas la solución?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: ¿Cómo lo resuelves hoy?

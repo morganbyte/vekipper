@@ -1,0 +1,54 @@
+# Empezar a desarrollar
+
+## Requisitos
+
+| Herramienta | Para qué | Instalación |
+|---|---|---|
+| Node.js 22+ | Frontend | https://nodejs.org |
+| pnpm | Gestor de paquetes JS | `npm install -g pnpm` |
+| Python 3.12+ | Backend | Viene con la mayoría de distribuciones Linux |
+| uv | Gestor de Python (entornos y dependencias) | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| Supabase CLI | Base de datos local y migraciones | `pnpm dlx supabase --help` (sin instalar) o https://supabase.com/docs/guides/cli |
+| Docker | Lo necesita Supabase en local | https://docs.docker.com/engine/install/ |
+
+## Frontend (`apps/web`)
+
+```bash
+pnpm install          # desde la raíz del repo
+pnpm dev:web          # http://localhost:3000
+```
+
+Otros comandos: `pnpm lint:web`, `pnpm build:web`.
+
+Para añadir componentes de shadcn/ui:
+
+```bash
+cd apps/web
+pnpm dlx shadcn@latest add <componente>
+```
+
+## Backend (`apps/api`)
+
+```bash
+cd apps/api
+cp .env.example .env
+uv sync                                          # crea el entorno e instala dependencias
+uv run uvicorn vekipper_api.main:app --reload    # http://localhost:8000
+```
+
+- Documentación interactiva de la API: http://localhost:8000/docs
+- Tests: `uv run pytest`
+- Lint y formato: `uv run ruff check .` y `uv run ruff format .`
+
+## Base de datos (`supabase/`)
+
+```bash
+pnpm dlx supabase start      # levanta Supabase en local (requiere Docker)
+pnpm dlx supabase db reset   # aplica las migraciones desde cero
+```
+
+Para crear una migración nueva:
+
+```bash
+pnpm dlx supabase migration new <nombre>
+```
