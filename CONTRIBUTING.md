@@ -11,7 +11,7 @@
 
 ## Flujo de trabajo
 
-- Rama principal: `main`. Los cambios se hacen en ramas cortas: `feat/...`, `fix/...`, `docs/...`.
+- **Ramas:** `develop` (staging) y `main` (producción), ambas protegidas. Cada cambio va en una rama corta (`feat/...`, `fix/...`, `chore/...`, `docs/...`) creada desde `develop`, y entra con un PR hacia `develop`. Detalle completo en [docs/environments.md](docs/environments.md).
 - **Commits convencionales:**
   - `feat:` nueva funcionalidad
   - `fix:` corrección de un error

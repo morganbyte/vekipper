@@ -13,3 +13,8 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - Migración de la tabla `feedback` con Row Level Security.
 - Documentación base: visión, arquitectura, roadmap, guía de inicio y ADRs 0001–0005.
 - Plantillas de issues y pull requests, y CI para web y API.
+- Entornos development/staging/production con flujo de ramas `develop`/`main` (ADR 0006).
+- Etiqueta de entorno en la web fuera de producción.
+
+### Cambiado
+- Toda la interfaz usa la fuente Geist Mono.
