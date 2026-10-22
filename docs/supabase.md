@@ -96,24 +96,71 @@ pnpm supabase db push
 
 ## 4. Guardar las claves de cada entorno en GitHub
 
-En cada proyecto: *Settings → API Keys*. Copia la **publishable key** y crea una **secret key**. Después, guárdalas en el environment de GitHub que le corresponde:
+Cada entorno guarda sus valores en su *environment* de GitHub. Así la CI (y más adelante el despliegue) usa los de staging o los de producción según la rama.
+
+| Nombre | Tipo | Ámbito | De dónde sale |
+|---|---|---|---|
+| `SUPABASE_PROJECT_REF` | Variable | `staging` / `production` | Settings → General → *Project ID* |
+| `SUPABASE_URL` | Variable | `staging` / `production` | `https://<ref>.supabase.co` |
+| `SUPABASE_PUBLISHABLE_KEY` | Variable | `staging` / `production` | Settings → API Keys → *Publishable key* |
+| `SUPABASE_SECRET_KEY` | **Secret** | `staging` / `production` | Settings → API Keys → *Secret keys* |
+| `SUPABASE_DB_PASSWORD` | **Secret** | `staging` / `production` | Tu gestor de contraseñas (paso 2) |
+| `SUPABASE_ACCESS_TOKEN` | **Secret** | Repositorio | Cuenta de Supabase → *Access Tokens* |
+
+- **Variables:** no son secretas y se pueden leer en GitHub.
+- **Secrets:** GitHub no los vuelve a mostrar nunca. Para cambiarlos, se sobrescriben.
+
+### 4.1 Staging
+
+En el panel de `vekipper-staging`:
 
 ```bash
-# Staging (valores de vekipper-staging)
-gh variable set SUPABASE_URL --env staging --body "https://<ref-staging>.supabase.co"
-gh variable set SUPABASE_PUBLISHABLE_KEY --env staging --body "sb_publishable_..."
-gh secret set SUPABASE_SECRET_KEY --env staging          # la pide de forma oculta
-gh secret set SUPABASE_DB_PASSWORD --env staging
+cd ~/Proyectos/vekipper
 
-# Producción (valores de vekipper-prod)
-gh variable set SUPABASE_URL --env production --body "https://<ref-prod>.supabase.co"
+gh variable set SUPABASE_PROJECT_REF     --env staging --body "<ref-staging>"
+gh variable set SUPABASE_URL             --env staging --body "https://<ref-staging>.supabase.co"
+gh variable set SUPABASE_PUBLISHABLE_KEY --env staging --body "sb_publishable_..."
+
+# Los secrets se piden de forma oculta (pega el valor y pulsa Enter),
+# así no quedan en el historial de la terminal.
+gh secret set SUPABASE_SECRET_KEY  --env staging
+gh secret set SUPABASE_DB_PASSWORD --env staging
+```
+
+### 4.2 Producción
+
+Lo mismo con los valores de `vekipper-prod` y `--env production`:
+
+```bash
+gh variable set SUPABASE_PROJECT_REF     --env production --body "<ref-prod>"
+gh variable set SUPABASE_URL             --env production --body "https://<ref-prod>.supabase.co"
 gh variable set SUPABASE_PUBLISHABLE_KEY --env production --body "sb_publishable_..."
-gh secret set SUPABASE_SECRET_KEY --env production
+gh secret set SUPABASE_SECRET_KEY  --env production
 gh secret set SUPABASE_DB_PASSWORD --env production
 ```
 
-- **Variables** (URL, clave publicable): no son secretas y se pueden leer en GitHub.
-- **Secrets** (clave secreta, contraseña): GitHub no los vuelve a mostrar nunca.
+### 4.3 Token de acceso (una vez, para todo el repo)
+
+Es personal de tu cuenta de Supabase y sirve para ambos proyectos. La CI lo usará para `supabase link` y `db push`.
+
+1. supabase.com → avatar → **Account preferences → Access Tokens** → *Generate new token*, con el nombre `vekipper-github-ci`.
+2. Guárdalo en el repositorio (sin `--env`):
+
+```bash
+gh secret set SUPABASE_ACCESS_TOKEN
+```
+
+### 4.4 Comprobar
+
+```bash
+gh variable list --env staging    && gh secret list --env staging
+gh variable list --env production && gh secret list --env production
+gh secret list
+```
+
+Deben salir 3 variables y 2 secrets por entorno, más `SUPABASE_ACCESS_TOKEN` en el repositorio. También se ve en GitHub: *Settings → Environments*.
+
+> **No mezclar entornos:** el valor que guardes en `--env staging` tiene que salir del proyecto `vekipper-staging`. Revisa el ref en la URL del panel antes de copiar.
 
 Cuando se elija el hosting, estos mismos valores se cargarán también allí.
 
@@ -133,3 +180,4 @@ Estos pasos dependen de otras piezas y se documentarán cuando lleguen:
 - [ ] Contraseñas de ambas bases de datos guardadas en el gestor de contraseñas
 - [ ] Migraciones aplicadas en staging y luego en producción
 - [ ] Variables y secrets cargados en los environments `staging` y `production` de GitHub
+- [ ] `SUPABASE_ACCESS_TOKEN` guardado como secret del repositorio
