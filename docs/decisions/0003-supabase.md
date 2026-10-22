@@ -13,4 +13,5 @@ Supabase: Postgres gestionado, Auth (incluido el inicio de sesión con Google) y
 - Inicio de sesión y base de datos listos sin montar infraestructura propia.
 - Al ser Postgres estándar, se puede migrar fuera de Supabase si hace falta.
 - RLS obligatorio en todas las tablas: cada usuario solo accede a sus filas.
-- La API en Python valida el JWT emitido por Supabase.
+- La API en Python valida el JWT emitido por Supabase con las claves públicas del proyecto (JWKS), sin compartir secretos.
+- Se usan las claves nuevas (publicable `sb_publishable_...` y secreta `sb_secret_...`), no las antiguas `anon`/`service_role`, que se retiran a finales de 2026.

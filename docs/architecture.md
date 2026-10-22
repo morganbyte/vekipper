@@ -34,7 +34,7 @@
 - **Conectores**: un módulo por proveedor (Google Calendar, Gmail, Google Tasks, Todoist), todos con la misma interfaz. Añadir un proveedor nuevo (Outlook, Notion...) significa escribir un conector, sin tocar el resto.
 - **OAuth**: gestiona la conexión de cada cuenta externa y guarda sus tokens **cifrados**.
 - **Sincronización** en ambos sentidos (ver abajo).
-- **Verificación de identidad**: cada petición trae el JWT de Supabase, y la API lo valida antes de hacer nada.
+- **Verificación de identidad**: cada petición trae el JWT de Supabase, y la API lo valida con las claves públicas del proyecto (JWKS) antes de hacer nada.
 
 ### `supabase/`: los datos
 - Migraciones SQL versionadas en git.

@@ -10,7 +10,7 @@
 | pnpm | Gestor de paquetes JS | `npm install -g pnpm` |
 | Python 3.12+ | Backend | Viene con la mayoría de distribuciones Linux |
 | uv | Gestor de Python (entornos y dependencias) | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
-| Supabase CLI | Base de datos local y migraciones | `pnpm dlx supabase --help` (sin instalar) o https://supabase.com/docs/guides/cli |
+| Supabase CLI | Base de datos local y migraciones | Incluida en el repo: `pnpm supabase ...` |
 | Docker | Lo necesita Supabase en local | https://docs.docker.com/engine/install/ |
 
 ## Frontend (`apps/web`)
@@ -46,12 +46,8 @@ uv run uvicorn vekipper_api.main:app --reload    # http://localhost:8000
 ## Base de datos (`supabase/`)
 
 ```bash
-pnpm dlx supabase start      # levanta Supabase en local (requiere Docker)
-pnpm dlx supabase db reset   # aplica las migraciones desde cero
+pnpm db:start    # levanta Supabase en local (requiere Docker)
+pnpm db:status   # URLs y claves para tus archivos .env
 ```
 
-Para crear una migración nueva:
-
-```bash
-pnpm dlx supabase migration new <nombre>
-```
+Guía completa (local, staging y producción): [supabase.md](supabase.md).
