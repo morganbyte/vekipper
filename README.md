@@ -49,6 +49,7 @@ Ver [docs/getting-started.md](docs/getting-started.md).
 - [Arquitectura](docs/architecture.md): cómo encajan las piezas
 - [Roadmap](docs/roadmap.md): qué viene y en qué orden
 - [Entornos y ramas](docs/environments.md): development, staging, production y cómo se publica una versión
+- [Configurar Supabase](docs/supabase.md): base de datos local, staging y producción paso a paso
 - [Decisiones de arquitectura](docs/decisions/): el porqué de cada decisión importante
 - [Cómo contribuir](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)

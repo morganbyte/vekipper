@@ -102,8 +102,8 @@ gh pr create --base develop --head main --title "chore: sincroniza hotfix en dev
 | Variable | development | staging | production |
 |---|---|---|---|
 | `APP_ENV` | `development` | `staging` | `production` |
-| Supabase | local (`supabase start`) | proyecto de staging | proyecto de producción |
+| Supabase | local (`pnpm db:start`) | proyecto de staging | proyecto de producción |
 | OAuth de Google | cliente de pruebas | cliente de pruebas | cliente verificado (en el futuro) |
 | Dónde se guardan los secretos | `.env` local (nunca en git) | Environment `staging` de GitHub y del hosting | Environment `production` de GitHub y del hosting |
 
-Plantillas: [`apps/web/.env.example`](../apps/web/.env.example) y [`apps/api/.env.example`](../apps/api/.env.example).
+Plantillas: [`apps/web/.env.example`](../apps/web/.env.example) y [`apps/api/.env.example`](../apps/api/.env.example). Configuración de Supabase paso a paso: [supabase.md](supabase.md).

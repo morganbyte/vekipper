@@ -9,7 +9,9 @@ Orientativo: el orden puede cambiar según el feedback de usuarios reales.
 - [x] CI: lint y tests de web y API
 - [x] Entornos y flujo de ramas: `develop` → staging, `main` → producción ([ADR 0006](decisions/0006-entornos-y-ramas.md))
 - [ ] Elegir hosting (web y API) y configurar el despliegue automático a staging y producción
+- [x] Guía de configuración de Supabase ([docs/supabase.md](supabase.md))
 - [ ] Proyectos Supabase de staging y producción
+- [ ] Migraciones automáticas desde la CI (`develop` → staging, `main` → producción)
 - [ ] Inicio de sesión con Google (Supabase Auth)
 - [ ] Layout base de la app (navegación, tema claro/oscuro)
 - [ ] Sección de feedback funcional en la interfaz
