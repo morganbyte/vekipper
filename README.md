@@ -15,7 +15,7 @@ Sin funciones de relleno: solo lo que usas.
 | Calendario | Google Calendar | Ver, crear, editar y borrar eventos | Planeado · v0.2 |
 | Tareas | Google Tasks, Todoist | Ver, crear y completar tareas | Planeado · v0.3 |
 | Correo | Gmail | Leer la bandeja **Principal** de las **últimas 24 h** y abrir cualquier correo en Gmail | Planeado · v0.4 |
-| Feedback | Vekipper | Reportar problemas y pedir funcionalidades desde la app | En curso · v0.1 |
+| Feedback | Vekipper | Reportar problemas y pedir funcionalidades desde la app, y ver el estado de lo enviado | Listo · v0.1 |
 
 La sincronización funciona **en ambos sentidos**: lo que cambias en Vekipper aparece en Google o Todoist, y lo que cambias allí aparece en Vekipper.
 
@@ -23,8 +23,10 @@ La sincronización funciona **en ambos sentidos**: lo que cambias en Vekipper ap
 
 - **Frontend:** [Next.js](https://nextjs.org) + TypeScript + [Tailwind](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) + [Motion](https://motion.dev)
 - **Backend:** Python + [FastAPI](https://fastapi.tiangolo.com)
-- **Base de datos y autenticación:** [Supabase](https://supabase.com)
+- **Base de datos y autenticación:** [Supabase](https://supabase.com), con inicio de sesión con Google
+- **Hosting de la web:** [Vercel](https://vercel.com)
 - **Monorepo** con pnpm (JavaScript) y [uv](https://docs.astral.sh/uv/) (Python)
+- **Tipografía:** [Geist Mono](https://vercel.com/font) en toda la interfaz
 
 ## Estructura
 
@@ -47,6 +49,10 @@ Ver [docs/getting-started.md](docs/getting-started.md).
 - [Visión](docs/vision.md): qué es Vekipper, para quién es y qué *no* es
 - [Arquitectura](docs/architecture.md): cómo encajan las piezas
 - [Roadmap](docs/roadmap.md): qué viene y en qué orden
+- [Entornos y ramas](docs/environments.md): development, staging, production y cómo se publica una versión
+- [Configurar Supabase](docs/supabase.md): base de datos local, staging y producción paso a paso
+- [Configurar Google Cloud](docs/google-cloud.md): inicio de sesión con Google en cada entorno
+- [Desplegar en Vercel](docs/vercel.md): staging y producción por rama
 - [Decisiones de arquitectura](docs/decisions/): el porqué de cada decisión importante
 - [Cómo contribuir](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)

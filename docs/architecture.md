@@ -28,13 +28,15 @@
 - Muestra los datos y envía acciones (crear evento, completar tarea...).
 - Gestiona la sesión del usuario con Supabase Auth.
 - **No** habla directamente con Google ni con Todoist: todo pasa por la API.
-- Excepción: el feedback se puede escribir directo en Supabase, protegido por RLS (Row Level Security).
+- Excepción: el feedback se escribe directo en Supabase desde una *server action*, protegido por RLS (Row Level Security).
+- La sesión vive en cookies (`@supabase/ssr`). El `proxy.ts` de Next la refresca en cada petición, y el servidor la verifica con `getClaims()`.
+- Con *Cache Components*, todo lo que lee la sesión va dentro de `<Suspense>`. El resto de la página se sirve prerenderizado al instante.
 
 ### `apps/api`: el cerebro
 - **Conectores**: un módulo por proveedor (Google Calendar, Gmail, Google Tasks, Todoist), todos con la misma interfaz. Añadir un proveedor nuevo (Outlook, Notion...) significa escribir un conector, sin tocar el resto.
 - **OAuth**: gestiona la conexión de cada cuenta externa y guarda sus tokens **cifrados**.
 - **Sincronización** en ambos sentidos (ver abajo).
-- **Verificación de identidad**: cada petición trae el JWT de Supabase, y la API lo valida antes de hacer nada.
+- **Verificación de identidad**: cada petición trae el JWT de Supabase, y la API lo valida con las claves públicas del proyecto (JWKS) antes de hacer nada.
 
 ### `supabase/`: los datos
 - Migraciones SQL versionadas en git.

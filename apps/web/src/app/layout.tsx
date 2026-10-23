@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { SiteHeader } from "@/components/app-shell/site-header";
+import { EnvBadge } from "@/components/env-badge";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
+// Geist Mono es la única fuente de Vekipper (texto, títulos y código).
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -19,11 +20,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    // suppressHydrationWarning: next-themes añade la clase del tema antes de hidratar.
+    <html lang="es" className={`${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>
+          <SiteHeader />
+          {children}
+          <Toaster position="bottom-center" />
+          <EnvBadge />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
