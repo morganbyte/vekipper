@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -24,10 +25,13 @@ export function UserMenu({ user }: { user: CurrentUser }) {
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-56">
-        <DropdownMenuLabel>
-          <div className="truncate text-sm text-foreground">{user.name}</div>
-          <div className="truncate text-xs font-normal">{user.email}</div>
-        </DropdownMenuLabel>
+        {/* En Base UI la etiqueta de un menú debe ir dentro de un grupo. */}
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>
+            <div className="truncate text-sm text-foreground">{user.name}</div>
+            <div className="truncate text-xs font-normal">{user.email}</div>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>
           <LogOut />
