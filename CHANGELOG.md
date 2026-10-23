@@ -19,6 +19,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - Inicio de sesión con Google mediante Supabase Auth (`/login` y `/auth/callback`).
 - Sección de feedback (`/feedback`): enviar un problema, una funcionalidad u otro, y ver el estado de lo enviado.
 - Guía de Google Cloud (`docs/google-cloud.md`) y ADR 0007 (Vercel para la web).
+- Guía de despliegue en Vercel (`docs/vercel.md`): staging en `develop` y producción en `main`.
 - Guía de configuración de Supabase (`docs/supabase.md`) y CLI de Supabase incluida en el repo, con los atajos `pnpm db:*`.
 
 ### Cambiado

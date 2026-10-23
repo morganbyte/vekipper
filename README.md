@@ -52,6 +52,7 @@ Ver [docs/getting-started.md](docs/getting-started.md).
 - [Entornos y ramas](docs/environments.md): development, staging, production y cómo se publica una versión
 - [Configurar Supabase](docs/supabase.md): base de datos local, staging y producción paso a paso
 - [Configurar Google Cloud](docs/google-cloud.md): inicio de sesión con Google en cada entorno
+- [Desplegar en Vercel](docs/vercel.md): staging y producción por rama
 - [Decisiones de arquitectura](docs/decisions/): el porqué de cada decisión importante
 - [Cómo contribuir](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)
