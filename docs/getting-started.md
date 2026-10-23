@@ -50,4 +50,4 @@ pnpm db:start    # levanta Supabase en local (requiere Docker)
 pnpm db:status   # URLs y claves para tus archivos .env
 ```
 
-Guía completa (local, staging y producción): [supabase.md](supabase.md).
+Guía completa (local, staging y producción): [supabase.md](supabase.md). Para el inicio de sesión con Google en local hace falta además un `.env` en la raíz del repo: [google-cloud.md](google-cloud.md).

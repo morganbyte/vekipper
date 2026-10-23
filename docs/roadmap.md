@@ -8,13 +8,17 @@ Orientativo: el orden puede cambiar según el feedback de usuarios reales.
 - [x] Migración de la tabla `feedback` en Supabase
 - [x] CI: lint y tests de web y API
 - [x] Entornos y flujo de ramas: `develop` → staging, `main` → producción ([ADR 0006](decisions/0006-entornos-y-ramas.md))
-- [ ] Elegir hosting (web y API) y configurar el despliegue automático a staging y producción
+- [x] Hosting de la web: Vercel ([ADR 0007](decisions/0007-vercel-para-la-web.md))
+- [ ] Desplegar la web en Vercel (`develop` → staging, `main` → producción)
+- [ ] Elegir el hosting de la API
 - [x] Guía de configuración de Supabase ([docs/supabase.md](supabase.md))
-- [ ] Proyectos Supabase de staging y producción
+- [x] Proyectos Supabase de staging y producción
 - [ ] Migraciones automáticas desde la CI (`develop` → staging, `main` → producción)
-- [ ] Inicio de sesión con Google (Supabase Auth)
-- [ ] Layout base de la app (navegación, tema claro/oscuro)
-- [ ] Sección de feedback funcional en la interfaz
+- [x] Código del inicio de sesión con Google (Supabase Auth)
+- [x] Guía de Google Cloud ([docs/google-cloud.md](google-cloud.md))
+- [ ] Proyectos de Google Cloud y clientes OAuth configurados
+- [x] Layout base de la app (navegación, tema claro/oscuro)
+- [x] Sección de feedback funcional en la interfaz
 - [ ] La API valida el JWT de Supabase
 
 ## v0.2: Calendario

@@ -1,6 +1,7 @@
 import { CalendarDays, CheckSquare, Mail } from "lucide-react";
 
 import { FadeIn } from "@/components/dashboard/fade-in";
+import { Today } from "@/components/dashboard/today";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -36,9 +37,9 @@ export default function Home() {
     <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-10 px-6 py-16">
       <FadeIn>
         <header className="flex flex-col gap-2">
-          <h1 className="text-3xl font-semibold tracking-tight">Vekipper</h1>
-          <p className="text-muted-foreground">
-            Tu día, en un solo vistazo.
+          <h1 className="text-3xl font-semibold tracking-tight">Hoy</h1>
+          <p className="text-muted-foreground first-letter:uppercase">
+            <Today />
           </p>
         </header>
       </FadeIn>
