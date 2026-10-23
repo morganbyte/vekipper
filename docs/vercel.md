@@ -24,6 +24,7 @@ Los nombres de dominio de esta guía son los deseados. Si `vekipper.vercel.app` 
    - **Root Directory:** **Edit → `apps/web`**. Es lo más importante: la web vive ahí dentro del monorepo.
    - **Build and Output Settings:** déjalo por defecto. Vercel detecta pnpm por el `pnpm-lock.yaml` de la raíz.
    - **Environment Variables:** añade las de **producción** (ver la tabla del paso 3). El primer despliegue usa siempre las de producción.
+     > ⚠️ **No pegues tu `.env.local`.** Tiene los valores locales (`127.0.0.1:54321` y `development`), y la app desplegada intentaría conectarse a tu máquina. Escribe a mano los valores de `vekipper-prod`.
 4. **Deploy.**
 
 > El primer despliegue sale de la rama por defecto del repo, que es **`develop`**, y Vercel lo trata como producción. Es normal y lo corriges en el paso 2.
@@ -120,6 +121,15 @@ Google no acepta comodines, así que las previews de cada PR no se añaden. No h
 | Release `develop` → `main` | Se actualiza **producción** |
 
 Si un despliegue falla, el error está en **Deployments → (el despliegue) → Build Logs**.
+
+## Problemas típicos
+
+| Síntoma | Causa | Solución |
+|---|---|---|
+| La etiqueta dice `development` en Vercel | Las variables tienen los valores locales, o no existían al compilar | Corrige las variables (paso 3) y **redespliega** |
+| El login lleva a `127.0.0.1:54321` | `NEXT_PUBLIC_SUPABASE_URL` tiene el valor local | Ídem |
+| Producción muestra lo que hay en `develop` | La rama de producción sigue siendo `develop` | Paso 2: *Branch Tracking* → `main`, y despliega `main` |
+| Cambié una variable y no se nota | Las `NEXT_PUBLIC_*` se incrustan al compilar | *Deployments → … → Redeploy* |
 
 ## Checklist
 
