@@ -6,22 +6,23 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
-### Añadido
-- Monorepo con `apps/web` (Next.js + shadcn/ui + Motion) y `apps/api` (FastAPI).
-- Página inicial con la base visual de Vekipper.
-- Endpoint `GET /health` en la API.
-- Migración de la tabla `feedback` con Row Level Security.
-- Documentación base: visión, arquitectura, roadmap, guía de inicio y ADRs 0001–0005.
-- Plantillas de issues y pull requests, y CI para web y API.
-- Entornos development/staging/production con flujo de ramas `develop`/`main` (ADR 0006).
-- Etiqueta de entorno en la web fuera de producción.
-- Layout base: cabecera con navegación animada, tema claro/oscuro y menú de usuario.
-- Inicio de sesión con Google mediante Supabase Auth (`/login` y `/auth/callback`).
-- Sección de feedback (`/feedback`): enviar un problema, una funcionalidad u otro, y ver el estado de lo enviado.
-- Guía de Google Cloud (`docs/google-cloud.md`) y ADR 0007 (Vercel para la web).
-- Guía de despliegue en Vercel (`docs/vercel.md`): staging en `develop` y producción en `main`.
-- Guía de configuración de Supabase (`docs/supabase.md`) y CLI de Supabase incluida en el repo, con los atajos `pnpm db:*`.
+## [0.1.0] - 2026-10-23
 
-### Cambiado
-- Toda la interfaz usa la fuente Geist Mono.
-- Las variables de entorno usan las claves nuevas de Supabase (publicable y secreta) en lugar de `anon` y el JWT secret.
+Primera versión: los cimientos de Vekipper, con inicio de sesión y feedback en producción.
+
+### Añadido
+
+**Para quien usa Vekipper**
+- Inicio de sesión con Google.
+- Interfaz minimalista en Geist Mono, con tema claro/oscuro y navegación animada.
+- Portada "Hoy" con la fecha del día y las secciones que vienen (Calendario, Tareas, Correo).
+- Sección de feedback: reportar un problema, pedir una funcionalidad y ver el estado de lo enviado.
+
+**Para quien desarrolla Vekipper**
+- Monorepo con `apps/web` (Next.js 16 + shadcn/ui + Motion) y `apps/api` (FastAPI), y CI de lint, tipos y tests.
+- Entornos development, staging y production, con flujo de ramas `develop`/`main` y despliegue automático en Vercel.
+- Supabase con Row Level Security y la tabla `feedback`; CLI incluida con los atajos `pnpm db:*`.
+- Documentación: visión, arquitectura, roadmap, guía de inicio, guías de Supabase, Google Cloud y Vercel, y ADRs 0001–0007.
+
+[Sin publicar]: https://github.com/morganbyte/vekipper/compare/v0.1.0...develop
+[0.1.0]: https://github.com/morganbyte/vekipper/releases/tag/v0.1.0
