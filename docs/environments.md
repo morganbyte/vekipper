@@ -15,8 +15,8 @@ Vekipper trabaja con tres entornos. Cada uno tiene su propia base de datos y su 
 | Entorno | Rama | Para qué | Datos | Quién lo usa |
 |---|---|---|---|---|
 | **development** | cualquier rama, en local | Programar y probar rápido | Supabase local (Docker), datos de prueba | Tú |
-| **staging** | `develop` | Probar el conjunto integrado, igual que en producción | Proyecto Supabase de staging | Tú y testers |
-| **production** | `main` | La app real | Proyecto Supabase de producción | Usuarios reales |
+| **staging** | `develop` | Probar el conjunto integrado, igual que en producción | Proyecto Supabase de staging | Tú y testers · `vekipper-staging.vercel.app` |
+| **production** | `main` | La app real | Proyecto Supabase de producción | Usuarios reales · `vekipper.vercel.app` |
 
 Reglas de oro:
 - **Nunca se comparten bases de datos ni credenciales entre entornos.**
@@ -54,7 +54,7 @@ gh pr create --base develop --fill
 gh pr merge --squash --delete-branch
 ```
 
-Al fusionar en `develop`, el cambio se despliega en **staging**. El despliegue automático llegará cuando se elija el hosting; ver el [roadmap](roadmap.md).
+Al fusionar en `develop`, Vercel despliega el cambio en **staging** automáticamente. Cada PR también genera su propia *preview* temporal ([vercel.md](vercel.md)).
 
 ## Publicar una versión (release)
 
@@ -77,7 +77,7 @@ git push origin v0.1.0
 gh release create v0.1.0 --notes-from-tag
 ```
 
-Al fusionar en `main`, el cambio se despliega en **producción**.
+Al fusionar en `main`, Vercel despliega el cambio en **producción**.
 
 ## Hotfix: arreglar producción con urgencia
 

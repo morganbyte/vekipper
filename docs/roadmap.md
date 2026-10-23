@@ -9,6 +9,7 @@ Orientativo: el orden puede cambiar según el feedback de usuarios reales.
 - [x] CI: lint y tests de web y API
 - [x] Entornos y flujo de ramas: `develop` → staging, `main` → producción ([ADR 0006](decisions/0006-entornos-y-ramas.md))
 - [x] Hosting de la web: Vercel ([ADR 0007](decisions/0007-vercel-para-la-web.md))
+- [x] Guía de despliegue en Vercel ([docs/vercel.md](vercel.md))
 - [ ] Desplegar la web en Vercel (`develop` → staging, `main` → producción)
 - [ ] Elegir el hosting de la API
 - [x] Guía de configuración de Supabase ([docs/supabase.md](supabase.md))
